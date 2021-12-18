@@ -1,0 +1,15 @@
+.login{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+// justify-content: space-around;
+  align-items: center;
+}
+
+mat-card {
+  margin: 5% 10%;
+}
+
+mat-form-field{
+  width: 80%;
+}

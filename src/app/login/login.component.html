@@ -1,0 +1,36 @@
+<mat-card>
+
+  <form
+    class="login"
+    #form="ngForm"
+    (ngSubmit)="sendForm(form)"
+    [ngFormOptions]="{updateOn: 'change'}">
+
+    <!--      EMAIL-->
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput
+             name="email"
+             ngModel
+             #email="ngModel"
+             required
+      >
+      <mat-error *ngIf="email.hasError('required')">Заполните поле</mat-error>
+    </mat-form-field>
+
+    <!--    ПАРОЛЬ-->
+    <mat-form-field appearance="fill">
+      <mat-label>Пароль</mat-label>
+      <input matInput
+             name="password"
+             #password="ngModel"
+             ngModel
+             required
+      >
+      <mat-error *ngIf="password.hasError('required')">Заполните поле</mat-error>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" [disabled]="form.form.invalid">Войти</button>
+  </form>
+
+</mat-card>
