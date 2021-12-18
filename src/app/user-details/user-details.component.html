@@ -1,65 +1,148 @@
-<p>user-details works!</p>
-<h3>Id: {{userId}}</h3>
-
 <ng-container *ngIf="userData">
-  <img style="width: 10%" src="{{userData.avatar}}">
-  <div>First name: {{userData.first_name}}</div>
-  <div>Last name: {{userData.last_name}}</div>
-  <div>Email: {{userData.email}}</div>
-  <button (click)="editButtonFlag = false" [disabled]="!editButtonFlag">Edit</button>
+
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Пользователь №{{userId}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image style="width: 35%" src="{{userData.avatar}}">
+    <mat-card-content>
+      <mat-card-title>{{userData.first_name}} {{userData.last_name}}</mat-card-title>
+      <mat-card-subtitle>{{userData.email}}</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button color="primary"
+              (click)="editButtonFlag = false"
+              [disabled]="!editButtonFlag"
+      >Изменить данные
+      </button>
+
+    </mat-card-actions>
+  </mat-card>
 </ng-container>
 
 
-<ng-container *ngIf="!editButtonFlag">
-  <form #form="ngForm"
-        [ngFormOptions]="{updateOn: 'change'}"
-        (ngSubmit)="sendForm()">
+  <mat-card *ngIf="!editButtonFlag">
+    <form #form="ngForm"
+          [ngFormOptions]="{updateOn: 'change'}"
+          (ngSubmit)="sendForm()">
 
-<!--    first name-->
-    <div class="form-group">
-      <label>First Name</label>
-      <input type="text"
-             name="firstName"
-             [(ngModel)]="firstName"
-             #firstname="ngModel"
-             required
-      >
-      <div class="error-message" *ngIf="firstname.hasError('required')">
-        Заполните поле
+      <!--    first name-->
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text"
+               name="firstName"
+               [(ngModel)]="firstName"
+               #firstname="ngModel"
+               required
+        >
+        <div class="error-message" *ngIf="firstname.hasError('required')">
+          Заполните поле
+        </div>
       </div>
-    </div>
 
-<!--    last name-->
-    <div class="form-group">
-      <label>Last Name</label>
-      <input type="text"
-             name="lastName"
-             [(ngModel)]="lastName"
-             #lastname="ngModel"
-             required
-      >
-      <div class="error-message" *ngIf="lastname.hasError('required')">
-        Заполните поле
+      <!--    last name-->
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text"
+               name="lastName"
+               [(ngModel)]="lastName"
+               #lastname="ngModel"
+               required
+        >
+        <div class="error-message" *ngIf="lastname.hasError('required')">
+          Заполните поле
+        </div>
       </div>
-    </div>
 
-<!--    email-->
-    <div class="form-group">
-      <label>Email</label>
-      <input type="email"
-             name="email"
-             [(ngModel)]="email"
-             #emaill="ngModel"
-             required
-      >
-      <div class="error-message" *ngIf="emaill.hasError('required')">
-        Заполните поле
+      <!--    email-->
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email"
+               name="email"
+               [(ngModel)]="email"
+               #emaill="ngModel"
+               required
+               email
+        >
+        <div class="error-message" *ngIf="emaill.hasError('required')">
+          Заполните поле
+        </div>
       </div>
-    </div>
 
-    <button [disabled]="form.form.invalid">Save</button>
+      <button mat-flat-button color="primary"
+              [disabled]="form.form.invalid"
+      >Сохранить изменения
+      </button>
+    </form>
 
-  </form>
+  </mat-card>
 
-</ng-container>
+
+
+
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+
+<!--<ng-container *ngIf="userData">-->
+<!--  <img style="width: 10%" src="{{userData.avatar}}">-->
+<!--  <div>First name: {{userData.first_name}}</div>-->
+<!--  <div>Last name: {{userData.last_name}}</div>-->
+<!--  <div>Email: {{userData.email}}</div>-->
+<!--  <button (click)="editButtonFlag = false" [disabled]="!editButtonFlag">Edit</button>-->
+<!--</ng-container>-->
+
+
+<!--<ng-container *ngIf="!editButtonFlag">-->
+<!--  <form #form="ngForm"-->
+<!--        [ngFormOptions]="{updateOn: 'change'}"-->
+<!--        (ngSubmit)="sendForm()">-->
+
+<!--    &lt;!&ndash;    first name&ndash;&gt;-->
+<!--    <div class="form-group">-->
+<!--      <label>First Name</label>-->
+<!--      <input type="text"-->
+<!--             name="firstName"-->
+<!--             [(ngModel)]="firstName"-->
+<!--             #firstname="ngModel"-->
+<!--             required-->
+<!--      >-->
+<!--      <div class="error-message" *ngIf="firstname.hasError('required')">-->
+<!--        Заполните поле-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash;    last name&ndash;&gt;-->
+<!--    <div class="form-group">-->
+<!--      <label>Last Name</label>-->
+<!--      <input type="text"-->
+<!--             name="lastName"-->
+<!--             [(ngModel)]="lastName"-->
+<!--             #lastname="ngModel"-->
+<!--             required-->
+<!--      >-->
+<!--      <div class="error-message" *ngIf="lastname.hasError('required')">-->
+<!--        Заполните поле-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash;    email&ndash;&gt;-->
+<!--    <div class="form-group">-->
+<!--      <label>Email</label>-->
+<!--      <input type="email"-->
+<!--             name="email"-->
+<!--             [(ngModel)]="email"-->
+<!--             #emaill="ngModel"-->
+<!--             required-->
+<!--      >-->
+<!--      <div class="error-message" *ngIf="emaill.hasError('required')">-->
+<!--        Заполните поле-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <button [disabled]="form.form.invalid">Save</button>-->
+
+<!--  </form>-->
+
+<!--</ng-container>-->
 

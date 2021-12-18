@@ -1,23 +1,44 @@
-<!--{{userResponse.data | json}}-->
+<h2><b>Список пользователей:</b></h2>
 
-<!--Users: {{userData | json}}-->
-
-<h3>Список пользователей:</h3>
-<ng-container *ngFor="let user of userData">
-  <img style="width: 10%" src="{{user.avatar}}" (click)="open(user.id)">
-  <div>
-    id: {{user.id}}
-  </div>
-
-  <div>
-    first_name: {{user.first_name}}
-  </div>
-  <button (click)="deleteUser(user.id)">Delete</button>
-  <br>
-</ng-container>
+<mat-card *ngFor="let user of userData">
+  <mat-card-header>
+    <div mat-card-avatar><img style="width: 110%" src="{{user.avatar}}"></div>
+    <mat-card-title (click)="open(user.id)" class="name">{{user.first_name}} {{user.last_name}}</mat-card-title>
+    <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
+    <button mat-mini-fab color="primary"
+            (click)="deleteUser(user.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-header>
+</mat-card>
 
 
-<h3>Список ресурсов:</h3>
-<ng-container *ngFor="let resource of resourceData">
-  {{resource | json}} <br>
-</ng-container>
+<h2><b>Список ресурсов:</b></h2>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>№</th>
+    <th>Name</th>
+    <th>Year</th>
+    <th>Color</th>
+    <th>Pantone_value</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let resource of resourceData">
+    <td>{{resource.id}}</td>
+    <td>{{resource.name}}</td>
+    <td>{{resource.year}}</td>
+    <td>{{resource.color}}</td>
+    <td>{{resource.pantone_value}}</td>
+  </tr>
+  </tbody>
+</table>
+
+
+
+<!--<ng-container *ngFor="let resource of resourceData">-->
+<!--  {{resource | json}} <br>-->
+<!--</ng-container>-->

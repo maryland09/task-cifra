@@ -1,8 +1,7 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {Support, User, UserInfoResponse} from "../types/user";
+import {Support, User} from "../types/user";
 import {UsersService} from "../services/users.service";
-import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-user-details',
@@ -35,8 +34,8 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  sendForm(){
-    this.userService.editUser(this.userId,{first_name: this.firstName, last_name: this.lastName, email: this.email})
+  sendForm() {
+    this.userService.editUser(this.userId, {first_name: this.firstName, last_name: this.lastName, email: this.email})
     this.editButtonFlag = true
 
     this.userData = {
