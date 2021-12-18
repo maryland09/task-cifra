@@ -18,7 +18,7 @@ export class HttpService {
   }
 
   public post<T>(url: string, data: any, params?: HttpParams): Observable<T> {
-    return this.http.put<T>(url, data,{params})
+    return this.http.post<T>(url, data,{params})
   }
 
   public delete<T>(url: string, params?: HttpParams): Observable<T> {

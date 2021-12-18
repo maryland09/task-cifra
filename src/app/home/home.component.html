@@ -1,8 +1,10 @@
 <button mat-flat-button color="primary"
-        (click)="goToRegister()">
+        (click)="goToPage('register')">
   Регистрация
 </button>
-<button mat-flat-button color="primary">Авторизация</button>
+<button mat-flat-button color="primary"
+        (click)="goToPage('login')"
+>Авторизация</button>
 
 <h2><b>Список пользователей:</b></h2>
 

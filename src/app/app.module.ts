@@ -17,6 +17,7 @@ import { RegisterComponent } from './register/register.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import { ValidateEqualModule } from 'ng-validate-equal';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -26,7 +27,8 @@ import { ValidateEqualModule } from 'ng-validate-equal';
     AppComponent,
     HomeComponent,
     UserDetailsComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
