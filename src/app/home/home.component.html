@@ -1,0 +1,23 @@
+<!--{{userResponse.data | json}}-->
+
+<!--Users: {{userData | json}}-->
+
+<h3>Список пользователей:</h3>
+<ng-container *ngFor="let user of userData">
+  <img style="width: 10%" src="{{user.avatar}}" (click)="open(user.id)">
+  <div>
+    id: {{user.id}}
+  </div>
+
+  <div>
+    first_name: {{user.first_name}}
+  </div>
+  <button (click)="deleteUser(user.id)">Delete</button>
+  <br>
+</ng-container>
+
+
+<h3>Список ресурсов:</h3>
+<ng-container *ngFor="let resource of resourceData">
+  {{resource | json}} <br>
+</ng-container>
