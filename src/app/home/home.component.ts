@@ -19,7 +19,7 @@ import {Router} from "@angular/router";
       }
 
       button {
-        flex: 0 1 auto
+        margin: 3px;
       }
 
       img {
@@ -172,6 +172,12 @@ export class HomeComponent implements OnInit {
 
   open(id: number) {
     this.router.navigateByUrl('/users/' + id)
+  }
+
+  goToRegister(){
+    this.router.navigateByUrl('/register')
+
+
   }
 
   deleteUser(id: number) {
