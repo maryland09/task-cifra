@@ -1,36 +1,40 @@
-<mat-card>
+<div style="display: flex; justify-content: center">
+  <mat-card>
+    <form
+      class="login"
+      #form="ngForm"
+      (ngSubmit)="sendForm(form)"
+      [ngFormOptions]="{updateOn: 'change'}">
 
-  <form
-    class="login"
-    #form="ngForm"
-    (ngSubmit)="sendForm(form)"
-    [ngFormOptions]="{updateOn: 'change'}">
+      <h1><b>Авторизация</b></h1>
 
-    <!--      EMAIL-->
-    <mat-form-field appearance="fill">
-      <mat-label>Email</mat-label>
-      <input matInput
-             name="email"
-             ngModel
-             #email="ngModel"
-             required
-      >
-      <mat-error *ngIf="email.hasError('required')">Заполните поле</mat-error>
-    </mat-form-field>
+      <!--      EMAIL-->
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput
+               name="email"
+               ngModel
+               #email="ngModel"
+               required
+        >
+        <mat-error *ngIf="email.hasError('required')">Заполните поле</mat-error>
+      </mat-form-field>
 
-    <!--    ПАРОЛЬ-->
-    <mat-form-field appearance="fill">
-      <mat-label>Пароль</mat-label>
-      <input matInput
-             name="password"
-             #password="ngModel"
-             ngModel
-             required
-      >
-      <mat-error *ngIf="password.hasError('required')">Заполните поле</mat-error>
-    </mat-form-field>
+      <!--    ПАРОЛЬ-->
+      <mat-form-field appearance="fill">
+        <mat-label>Пароль</mat-label>
+        <input matInput
+               name="password"
+               #password="ngModel"
+               ngModel
+               required
+        >
+        <mat-error *ngIf="password.hasError('required')">Заполните поле</mat-error>
+      </mat-form-field>
 
-    <button mat-flat-button color="primary" [disabled]="form.form.invalid">Войти</button>
-  </form>
+      <button mat-flat-button color="primary" [disabled]="form.form.invalid">Войти</button>
+    </form>
 
-</mat-card>
+  </mat-card>
+
+</div>

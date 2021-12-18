@@ -3,10 +3,6 @@ import {NgForm} from "@angular/forms";
 import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
 
-export interface Data {
-  id: number,
-  token: string
-}
 
 @Component({
   selector: 'app-register',

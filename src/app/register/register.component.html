@@ -1,77 +1,83 @@
-<mat-card>
-
-  <form
-    class="register"
-    #regform="ngForm"
-    (ngSubmit)="sendForm(regform)"
-    [ngFormOptions]="{updateOn: 'change'}">
-
-    <!--      Имя-->
-    <mat-form-field appearance="fill">
-      <mat-label>Имя</mat-label>
-      <input matInput
-             name="firstname"
-             ngModel
-             #firstname="ngModel"
-             required
-      >
-      <mat-error *ngIf="firstname.hasError('required')">Заполните поле</mat-error>
-    </mat-form-field>
-
-    <!--      Фамилия-->
-    <mat-form-field appearance="fill">
-      <mat-label>Фамилия</mat-label>
-      <input matInput
-             name="lastname"
-             ngModel
-             #lastname="ngModel"
-             required
-      >
-      <mat-error *ngIf="lastname.hasError('required')">Заполните поле</mat-error>
-    </mat-form-field>
+<div style="display: flex; justify-content: center">
 
 
-    <!--      EMAIL-->
-    <mat-form-field appearance="fill">
-      <mat-label>Email</mat-label>
-      <input matInput
-             name="email"
-             ngModel
-             #email="ngModel"
-             required
-             email
-      >
-      <mat-error *ngIf="email.hasError('email')">Неверный email</mat-error>
-      <mat-error *ngIf="email.hasError('required')">Заполните поле</mat-error>
-    </mat-form-field>
+  <mat-card>
 
-    <!--    ПАРОЛЬ-->
-    <mat-form-field appearance="fill">
-      <mat-label>Пароль</mat-label>
-      <input matInput
-             name="password"
-             #password="ngModel"
-             ngModel
-             required
-      >
-      <mat-error *ngIf="password.hasError('required')">Заполните поле</mat-error>
-    </mat-form-field>
+    <form
+      class="register"
+      #regform="ngForm"
+      (ngSubmit)="sendForm(regform)"
+      [ngFormOptions]="{updateOn: 'change'}">
 
-    <mat-form-field appearance="fill">
-      <mat-label>Подтверждение пароля</mat-label>
-      <input matInput
-             name="confirmation"
-             #confirmation="ngModel"
-             ngModel
-             required
-             ngValidateEqual="password"
-      >
-      <mat-error *ngIf="confirmation.hasError('required')">Заполните поле</mat-error>
-      <mat-error *ngIf="confirmation.hasError('notEqual')">Пароли не совпадают</mat-error>
-    </mat-form-field>
+      <h1><b>Регистрация</b></h1>
 
-    <button mat-flat-button color="primary" [disabled]="regform.form.invalid">Зарегистрироваться</button>
+      <!--      Имя-->
+      <mat-form-field appearance="fill">
+        <mat-label>Имя</mat-label>
+        <input matInput
+               name="firstname"
+               ngModel
+               #firstname="ngModel"
+               required
+        >
+        <mat-error *ngIf="firstname.hasError('required')">Заполните поле</mat-error>
+      </mat-form-field>
 
-  </form>
+      <!--      Фамилия-->
+      <mat-form-field appearance="fill">
+        <mat-label>Фамилия</mat-label>
+        <input matInput
+               name="lastname"
+               ngModel
+               #lastname="ngModel"
+               required
+        >
+        <mat-error *ngIf="lastname.hasError('required')">Заполните поле</mat-error>
+      </mat-form-field>
 
-</mat-card>
+
+      <!--      EMAIL-->
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput
+               name="email"
+               ngModel
+               #email="ngModel"
+               required
+               email
+        >
+        <mat-error *ngIf="email.hasError('email')">Неверный email</mat-error>
+        <mat-error *ngIf="email.hasError('required')">Заполните поле</mat-error>
+      </mat-form-field>
+
+      <!--    ПАРОЛЬ-->
+      <mat-form-field appearance="fill">
+        <mat-label>Пароль</mat-label>
+        <input matInput
+               name="password"
+               #password="ngModel"
+               ngModel
+               required
+        >
+        <mat-error *ngIf="password.hasError('required')">Заполните поле</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Подтверждение пароля</mat-label>
+        <input matInput
+               name="confirmation"
+               #confirmation="ngModel"
+               ngModel
+               required
+               ngValidateEqual="password"
+        >
+        <mat-error *ngIf="confirmation.hasError('required')">Заполните поле</mat-error>
+        <mat-error *ngIf="confirmation.hasError('notEqual')">Пароли не совпадают</mat-error>
+      </mat-form-field>
+
+      <button mat-flat-button color="primary" [disabled]="regform.form.invalid">Зарегистрироваться</button>
+
+    </form>
+
+  </mat-card>
+</div>
